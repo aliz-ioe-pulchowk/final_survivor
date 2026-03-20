@@ -9,11 +9,11 @@ Each phase must be complete and compiling before the next begins.
 
 Nothing else can be written without this. All structs and constants live here.
 
-- [ ] Define all `#define` constants (console dims, timing, balance, spawn)
-- [ ] Define `Enemy` struct — `word`, `x`, `y`, `acc`, `speed`, `active`
-- [ ] Define `ScreenBuf` struct — `back[H][W]` and `front[H][W]`
-- [ ] Define `GameState` struct — pool, enemies, screen, timers, input state, running flag
-- [ ] Add include guards
+- [x] Define all `#define` constants (console dims, timing, balance, spawn)
+- [x] Define `Enemy` struct — `word`, `x`, `y`, `acc`, `speed`, `active`
+- [x] Define `ScreenBuf` struct — `back[H][W]` and `front[H][W]`
+- [x] Define `GameState` struct — pool, enemies, screen, timers, input state, running flag
+- [x] Add include guards
 
 ---
 

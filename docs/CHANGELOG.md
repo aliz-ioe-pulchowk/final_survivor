@@ -2,15 +2,18 @@
 Follow the following guidelines
 
 Format: 
-    S.No. : Subsystem : Change Type : Change Description : Name 
+    S.No. : Subsystemfile : Change Type : Change Description : Name 
 
 
 Examples:
-    1 : Enemy : Add : Implemented enemy spawner : Mahendra Sharma
+    1 : Enemy.h: Add : Implemented enemy spawner : Mahendra Sharma
     ..
     ..
-    5 : Render : Modify : Changed look of game over screen : Aliz Bhattarai
+    5 : Render.h : Modify : Changed look of game over screen : Aliz Bhattarai
     ..
     ..
-    11 : Types : Delete : Removed  'Enemy' struct's 'acc' (Redundant) : Binod Kafle
+    11 : Types.h : Delete : Removed  'Enemy' struct's 'acc' (Redundant) : Binod Kafle
 -->
+
+
+1 : Types.h : Add : Implemented Necessary Constants and Structs : Mahendra Sharma
