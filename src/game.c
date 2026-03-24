@@ -1,4 +1,5 @@
 #include "game.h"
+#include "conio.h"
 #include "console.h"
 #include "enemy.h"
 #include "input.h"
@@ -6,15 +7,18 @@
 #include "words.h"
 
 int game_init(GameState* gs) {
+    srand((unsigned int) time(NULL));
+
     memset(gs, 0, sizeof(GameState));
 
-    gs->pool_size = load_words(gs, WORDS_FILE);
+    gs->pool_size = words_load(gs, WORDS_FILE);
     if (gs->pool_size < 2) {
         printf("\nCouldn't load words file.");
         return 0;
+    } else {
+        printf("\nLoaded words: %d", gs->pool_size);
+        _getch();
     }
-
-    srand((unsigned int) time(NULL));
 
     gs->player_hp         = PLAYER_MAX_HP;
     gs->spawn_interval_ms = BASE_SPAWN_MS;
@@ -22,7 +26,7 @@ int game_init(GameState* gs) {
     gs->running           = 1;
     gs->con_out           = GetStdHandle(STD_OUTPUT_HANDLE);
 
-    set_console_size(gs->con_out);  // resize buffer+window to match constants
+    console_set_size(gs->con_out);  // resize buffer+window to match constants
     console_hide_cursor(gs->con_out);
     system("cls");
 
@@ -48,7 +52,7 @@ void game_run(GameState* gs) {
         float elapsed = (float) now - gs->last_frame_tick;
 
         // compensate the frame
-        float to_sleep_ms = elapsed - FRAME_MS;
+        float to_sleep_ms = FRAME_MS - elapsed;
         to_sleep_ms       = to_sleep_ms < 0 ? 0 : (to_sleep_ms > MAX_DT_MS ? MAX_DT_MS : to_sleep_ms);
         Sleep(to_sleep_ms);
 
@@ -56,7 +60,7 @@ void game_run(GameState* gs) {
         input_handle(gs);
 
         // update enemies position and handle collision with wall
-        enemy_update(gs, FRAME_MS);
+        enemy_update(gs, to_sleep_ms / 1000);
 
         // handle spawn of words
         if ((now - gs->last_spawn_tick) >= gs->spawn_interval_ms) {
@@ -75,5 +79,7 @@ void game_run(GameState* gs) {
 
         // flushing the buffers
         render_frame(gs, now);
+
+        gs->last_frame_tick = now;
     }
 }

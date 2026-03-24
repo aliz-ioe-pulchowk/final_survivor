@@ -4,7 +4,7 @@
 #include <string.h>
 #include <time.h>
 
-#define PROBABILITY 0.15
+#define PROBABILITY 0.40
 
 // decide to accept the word or not
 int accepted() {
@@ -14,7 +14,6 @@ int accepted() {
 }
 
 int words_load(GameState *gs, const char *path) {
-    srand((unsigned int) time(NULL));
     gs->pool_size = POOL_CAPACITY;
     int   count   = 0;
     FILE *f;
@@ -72,6 +71,7 @@ int words_load(GameState *gs, const char *path) {
 
     fclose(f);
     gs->pool_size = count;
+
     return count;
 }
 

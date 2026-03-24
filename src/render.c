@@ -1,73 +1,66 @@
-#include "console.h"
 #include "render.h"
 #include <stdio.h>
+#include "console.h"
 
 // helper function to dynamically generate custom sized wall.
-static char *generate_wall(int no_of_small_arrows)
-{
-    static char wall[ROW_LEN];
-    if (wall[ROW_LEN - 1] == '^')
-        return wall;
-
-    int a = no_of_small_arrows;
+char wall[ROW_LEN];
+void generate_wall(int no_of_small_arrows) {
+    int a        = no_of_small_arrows;
     int how_many = ROW_LEN / (2 * a + 2 * 1);
-    int gap = 2 * a + 2;
-    int fill = ROW_LEN % (2 * a + 2 * 1);
-    int count = 0;
+    int gap      = 2 * a + 2;
+    int fill     = ROW_LEN % (2 * a + 2 * 1);
+    int count    = 0;
 
+    const char x = '-';
     for (int i = 0; i < fill / 2; i++)
-        wall[count++] = '^';
+        wall[count++] = x;
 
-    for (int i = 0; i < how_many; i++)
-    {
+    for (int i = 0; i < how_many; i++) {
         for (int j = 0; j < a; j++)
-            wall[count++] = '^';
+            wall[count++] = x;
 
         wall[count++] = '|';
         wall[count++] = '|';
 
         for (int j = 0; j < a; j++)
-            wall[count++] = '^';
+            wall[count++] = x;
     }
     for (int i = 0; i < fill / 2; i++)
-        wall[count++] = '^';
+        wall[count++] = x;
 }
 
-// renders the actual content displayed on the window
-void render_frame(GameState *gs, DWORD now)
-{
-    char temp[CONSOLE_WIDTH];
-    float elapsed_time = (float)(now - gs->last_frame_tick) / 1000;
+// renders the actual content displayed on the windows
+void render_frame(GameState *gs, DWORD now) {
+    char  temp[CONSOLE_WIDTH];
+    float elapsed_time = (float) (gs->last_frame_tick - gs->start_tick) / 1000;
+
     CONSOLE_SCREEN_BUFFER_INFO csbi;
-    if (GetConsoleScreenBufferInfo(gs->con_out, &csbi))
-    {
+    if (GetConsoleScreenBufferInfo(gs->con_out, &csbi)) {
         console_set_size(gs->con_out);
-        system("cls");
         memset(gs->screen.front, 0, sizeof(gs->screen.front));
     }
 
     buf_clear(&gs->screen);
 
     snprintf(temp, sizeof(temp),
-             "HP: %d | Kills: %d | Surived: %.2fs | CPS: %f | Level: %d",
+             "HP: %d | Kills: %d | Surived: %.2fs | CPS: %.2f | Level: %d",
              gs->player_hp, gs->kills, elapsed_time, gs->last_cps, gs->diff_level + 1);
     buf_write(&gs->screen, 0, 0, temp);
 
-    for (int i = 0; i < MAX_ENEMIES; i++)
-    {
+    for (int i = 0; i < MAX_ENEMIES; i++) {
         Enemy *e = &gs->enemies[i];
         buf_write(&gs->screen, e->x, e->y, e->word);
     }
 
-    buf_write(&gs->screen, WALL_ROW, 0, generate_wall(3));
-    buf_write(&gs->screen, INPUT_ROW, 0, ":> ");
-    buf_flush(&gs);
+    buf_write(&gs->screen, 0, WALL_ROW, wall);
+    buf_write(&gs->screen, 0, INPUT_ROW, "=> ");
+    buf_write(&gs->screen, 3, INPUT_ROW, gs->input_buf);
+    buf_flush(gs);
 }
 
 // The game over console screen
-void render_game_over(GameState *gs, DWORD now)
-{
-    float elapsed = (float)(now - gs->last_frame_tick) / 1000;
+void render_game_over(GameState *gs, DWORD now) {
+    float elapsed = (float) (gs->last_frame_tick - gs->start_tick) / 1000;
     console_show_cursor(gs->con_out);
     system("cls");
     printf(
@@ -80,8 +73,7 @@ void render_game_over(GameState *gs, DWORD now)
         "\n%-20s : %-4d"
         "\n%-20s : %-6.2f"
 
-        "\n\n<><><><><><><><><><><><><><><><><><><>"
-        "\n\nPress 'Enter' to continue...",
+        "\n\n<><><><><><><><><><><><><><><><><><><>\n",
 
         // %s, %d orderwise placements.
         "Total Kills", gs->kills,
@@ -95,5 +87,5 @@ void render_game_over(GameState *gs, DWORD now)
         Sleep(100);
 
     // wait for key press to exit
-    _getchar();
+    _getch();
 }

@@ -5,12 +5,12 @@ void enemy_spawn(GameState* gs) {
     const char* picked = words_pick(gs);  // picks a random but absent word
 
     Enemy e = {
-        .word   = picked,
-        .x      = rand() / RAND_MAX * (SPAWN_COL_MAX - SPAWN_COL_MIN) + SPAWN_COL_MIN,
+        .x      = (float) rand() / RAND_MAX * (SPAWN_COL_MAX - SPAWN_COL_MIN) + SPAWN_COL_MIN,
         .y      = PLAY_START_ROW,
         .speed  = gs->base_speed,
         .acc    = 0,
         .active = 1};
+    strcpy(e.word, picked);
 
     for (int i = 0; i < MAX_ENEMIES; i++) {
         if (gs->enemies[i].active != 0)

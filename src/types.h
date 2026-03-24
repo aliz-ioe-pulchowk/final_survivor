@@ -7,7 +7,7 @@
 
 // Word pool
 #define WORDS_FILE "words.txt"
-#define POOL_CAPACITY 200
+#define POOL_CAPACITY 500
 #define MAX_WORD_LEN 24
 #define INPUT_BUF_LEN (MAX_WORD_LEN + 2)
 
@@ -15,7 +15,7 @@
 #define CONSOLE_WIDTH 80
 #define CONSOLE_HEIGHT 30
 #define ROW_LEN (CONSOLE_WIDTH - 1)     // one less to avoid auto line-wrap
-#define WALL_ROW (CONSOLE_HEIGHT - 2)   // castle wall position
+#define WALL_ROW (CONSOLE_HEIGHT - 3)   // castle wall position
 #define INPUT_ROW (CONSOLE_HEIGHT - 1)  // input buffer position
 #define PLAY_START_ROW 1                // words spawn position
 
@@ -101,4 +101,4 @@ typedef struct {
     int running;
 } GameState;
 
-#endif  // TYPES_H
+#endif

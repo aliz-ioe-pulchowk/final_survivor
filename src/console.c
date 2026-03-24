@@ -42,7 +42,7 @@ void buf_write(ScreenBuf* sb, int col, int row, const char* text) {
 void buf_flush(GameState* gs) {
     for (int i = 0; i < CONSOLE_HEIGHT; ++i) {
         if (strcmp(gs->screen.back[i], gs->screen.front[i]) == 0) continue;
-        goto_xy(gs->con_out, 0, i);
+        console_goto_xy(gs->con_out, 0, i);
         fputs(gs->screen.back[i], stdout);
     }
     memcpy(gs->screen.front, gs->screen.back, sizeof(gs->screen.back));
