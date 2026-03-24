@@ -23,6 +23,8 @@ void enemy_spawn(GameState* gs) {
 void enemy_update(GameState* gs, float dt_sec) {
     for (int i = 0; i < MAX_ENEMIES; i++) {
         Enemy* e = &gs->enemies[i];
+        if (e->active == 0) continue;
+
         e->acc += e->speed * dt_sec;
 
         while (e->acc >= 1.0) {
