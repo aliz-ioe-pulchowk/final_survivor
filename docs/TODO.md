@@ -62,11 +62,11 @@ Depends on: `types.h`, `words.h`
 
 Depends on: `types.h`, `enemy.h`
 
-- [ ] `input_try_submit(GameState *gs)` — strcmp input_buf against each active enemy word,
+- [x] `input_try_submit(GameState *gs)` — strcmp input_buf against each active enemy word,
       on match: elapsed = (GetTickCount - first_key_tick) / 1000.0 floored at 0.05s,
       last_cps = input_len / elapsed, active = 0, kills++,
       always: input_len = 0, input_buf[0] = '\0', first_key_set = 0
-- [ ] `input_handle(GameState *gs)` — while \_kbhit(): \_getch(ch),
+- [x] `input_handle(GameState *gs)` — while \_kbhit(): \_getch(ch),
       0x00/0xE0: consume second byte and continue,
       ESC: running = 0,
       Backspace: pop input_buf, if empty clear first_key_set,

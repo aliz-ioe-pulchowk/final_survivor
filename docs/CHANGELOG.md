@@ -21,3 +21,4 @@ Examples:
 4 : Enemy : Add : Implemented Enemy struct and logic : Mahendra Sharma <br>
 5 : Render : Add : Implemented Rendering logic and functions: Aliz Bhattarai <br>
 6 : Game : Add : Implemented Game logic : Mahendra Sharma <br>
+7 : Input : Add : Implemented handling Input and submission : Aliz Bhattarai <br>
