@@ -15,7 +15,8 @@ Examples:
     11 : Types.h : Delete : Removed  'Enemy' struct's 'acc' (Redundant) : Binod Kafle
 -->
 
-1 : Types.h : Add : Implemented Necessary Constants and Structs : Mahendra Sharma
-2 : Console.h : Add : Implemented Everything For Console Operations : Mahendra Sharma
-3 : Words.h : Add : Implemented Necessary words loading and picking : Aliz Bhattarai
-4 : Enemy.h : Add : Implemented Enemy struct and logic : Mahendra Sharma
+1 : Types : Add : Implemented Necessary Constants and Structs : Mahendra Sharma <br>
+2 : Console : Add : Implemented Everything For Console Operations : Mahendra Sharma <br>
+3 : Words : Add : Implemented Necessary words loading and picking : Aliz Bhattarai <br>
+4 : Enemy : Add : Implemented Enemy struct and logic : Mahendra Sharma <br>
+5 : Render : Add : Implemented Rendering logic and functions: Aliz Bhattarai <br>

@@ -80,14 +80,14 @@ Depends on: `types.h`, `enemy.h`
 
 Depends on: `types.h`, `console.h`, `enemy.h`
 
-- [ ] `render_frame(GameState *gs, DWORD now)`: 
-      - [ ] Resize guard — GetConsoleScreenBufferInfo, if size differs call
+- [x] `render_frame(GameState *gs, DWORD now)`: 
+      - [x] Resize guard — GetConsoleScreenBufferInfo, if size differs call
             console_set_size, system("cls"), memset front[] to 0 
-      - [ ] buf_clear - [ ] buf_write pass 1 — status bar row 0: HP, kills, elapsed time, CPS, level
-      - [ ] buf_write pass 2 — each active enemy word at clamped (col, row) 
-      - [ ] buf_write pass 3 — castle wall of '=' chars at WALL_ROW
-      - [ ] buf_write pass 4 — "> input_buf" at INPUT_ROW - [ ] buf_flush
-- [ ] `render_game_over(GameState *gs, DWORD now)` 
+      - [x] buf_clear - [ ] buf_write pass 1 — status bar row 0: HP, kills, elapsed time, CPS, level
+      - [x] buf_write pass 2 — each active enemy word at clamped (col, row) 
+      - [x] buf_write pass 3 — castle wall of '=' chars at WALL_ROW
+      - [x] buf_write pass 4 — "> input_buf" at INPUT_ROW - [ ] buf_flush
+- [x] `render_game_over(GameState *gs, DWORD now)` 
       - console_show_cursor, system("cls")
       - printf kills / elapsed time / diff_level / last_cps
       - block on \_kbhit + \_getch
