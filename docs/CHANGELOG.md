@@ -18,3 +18,4 @@ Examples:
 1 : Types.h : Add : Implemented Necessary Constants and Structs : Mahendra Sharma
 2 : Console.h : Add : Implemented Everything For Console Operations : Mahendra Sharma
 3 : Words.h : Add : Implemented Necessary words loading and picking : Aliz Bhattarai
+4 : Enemy.h : Add : Implemented Enemy struct and logic : Mahendra Sharma
