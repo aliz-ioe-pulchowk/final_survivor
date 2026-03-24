@@ -98,22 +98,22 @@ Depends on: `types.h`, `console.h`, `enemy.h`
 
 Depends on: all previous headers
 
-- [ ] `game_init(GameState *gs)`: 
-- [ ] memset gs to 0 
-- [ ] words_load — print error and return 0 on failure 
-- [ ] srand(time(NULL)) 
-- [ ] set player_hp, spawn_interval_ms, base_speed, running = 1 
-- [ ] con_out = GetStdHandle(STD_OUTPUT_HANDLE) 
-- [ ] console_set_size, console_hide_cursor, system("cls") 
-- [ ] seed front[] rows with spaces 
-- [ ] stamp start_tick, last_frame_tick, last_spawn_tick, last_diff_tick
-- [ ] `game_run(GameState *gs)`: 
-- [ ] frame limiter — GetTickCount, Sleep if dt < FRAME_MS, clamp dt to MAX_DT_MS 
-- [ ] input_handle 
-- [ ] enemy_update 
-- [ ] spawner check — if elapsed >= spawn_interval_ms: enemy_spawn, update last_spawn_tick 
-- [ ] enemy_update_difficulty - [ ] break if player_hp <= 0 
-- [ ] render_frame
+- [x] `game_init(GameState *gs)`: 
+- [x] memset gs to 0 
+- [x] words_load — print error and return 0 on failure 
+- [x] srand(time(NULL)) 
+- [x] set player_hp, spawn_interval_ms, base_speed, running = 1 
+- [x] con_out = GetStdHandle(STD_OUTPUT_HANDLE) 
+- [x] console_set_size, console_hide_cursor, system("cls") 
+- [x] seed front[] rows with spaces 
+- [x] stamp start_tick, last_frame_tick, last_spawn_tick, last_diff_tick
+- [x] `game_run(GameState *gs)`: 
+- [x] frame limiter — GetTickCount, Sleep if dt < FRAME_MS, clamp dt to MAX_DT_MS 
+- [x] input_handle 
+- [x] enemy_update 
+- [x] spawner check — if elapsed >= spawn_interval_ms: enemy_spawn, update last_spawn_tick 
+- [x] enemy_update_difficulty - [x] break if player_hp <= 0 
+- [x] render_frame
 
 ---
 
