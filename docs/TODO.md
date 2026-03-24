@@ -21,13 +21,13 @@ Nothing else can be written without this. All structs and constants live here.
 
 Depends on: `types.h`
 
-- [ ] `console_goto_xy(HANDLE h, int col, int row)`
-- [ ] `console_hide_cursor(HANDLE h)`
-- [ ] `console_show_cursor(HANDLE h)`
-- [ ] `console_set_size(HANDLE h)` — shrink window to 1x1, resize buffer, expand window
-- [ ] `buf_clear(ScreenBuf *sb)` — fill every back[] row with spaces, null-terminate
-- [ ] `buf_write(ScreenBuf *sb, int col, int row, const char *text)` — clip at ROW_LEN
-- [ ] `buf_flush(GameState *gs)` — strcmp each row, write only changed rows, memcpy front
+- [x] `console_goto_xy(HANDLE h, int col, int row)`
+- [x] `console_hide_cursor(HANDLE h)`
+- [x] `console_show_cursor(HANDLE h)`
+- [x] `console_set_size(HANDLE h)` — shrink window to 1x1, resize buffer, expand window
+- [x] `buf_clear(ScreenBuf *sb)` — fill every back[] row with spaces, null-terminate
+- [x] `buf_write(ScreenBuf *sb, int col, int row, const char *text)` — clip at ROW_LEN
+- [x] `buf_flush(GameState *gs)` — strcmp each row, write only changed rows, memcpy front
 
 ---
 
