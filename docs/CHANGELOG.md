@@ -22,3 +22,5 @@ Examples:
 5 : Render : Add : Implemented Rendering logic and functions: Aliz Bhattarai <br>
 6 : Game : Add : Implemented Game logic : Mahendra Sharma <br>
 7 : Input : Add : Implemented handling Input and submission : Aliz Bhattarai <br>
+8 : Main : Add : Implemented Main menu and start logic : Mahendra Sharma <br>
+9 : All : Fix : Fixed some small bugs and logical errors : Mahendra Sharma <br>

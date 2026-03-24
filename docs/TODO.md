@@ -121,9 +121,9 @@ Depends on: all previous headers
 
 Depends on: `game.h`, `render.h`
 
-- [ ] Declare `GameState gs`
-- [ ] Call `game_init(&gs)` — return 1 on failure
-- [ ] Call `enemy_spawn(&gs)` — place the first word before the loop starts
-- [ ] Call `game_run(&gs)`
-- [ ] Call `render_game_over(&gs, GetTickCount())`
-- [ ] Compile: `gcc main.c game.c render.c input.c enemy.c words.c console.c -o game.exe`
+- [x] Declare `GameState gs`
+- [x] Call `game_init(&gs)` — return 1 on failure
+- [x] Call `enemy_spawn(&gs)` — place the first word before the loop starts
+- [x] Call `game_run(&gs)`
+- [x] Call `render_game_over(&gs, GetTickCount())`
+- [x] Compile: `gcc main.c game.c render.c input.c enemy.c words.c console.c -o game.exe`
