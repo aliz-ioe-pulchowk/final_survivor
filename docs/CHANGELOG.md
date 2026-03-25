@@ -24,3 +24,4 @@ Examples:
 7 : Input : Add : Implemented handling Input and submission : Aliz Bhattarai <br>
 8 : Main : Add : Implemented Main menu and start logic : Mahendra Sharma <br>
 9 : All : Fix : Fixed some small bugs and logical errors : Mahendra Sharma <br>
+10 : Extra : Fix : Fixed -WimplicitDefiniton error while compiling in another PC: Aliz Bhattarai <br> 

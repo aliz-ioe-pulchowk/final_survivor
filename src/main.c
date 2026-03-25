@@ -5,6 +5,12 @@
 #include "render.h"
 #include "words.h"
 
+
+#include <stdio.h>
+#include <conio.h>
+//safety net for -Wimplicit -function-declaration errors in some compilers
+
+
 void main_menu() {
     system("cls");
     printf(

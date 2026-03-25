@@ -1,5 +1,6 @@
-#include "render.h"
 #include <stdio.h>
+#include <conio.h>
+#include "render.h"
 #include "console.h"
 
 // helper function to dynamically generate custom sized wall.
