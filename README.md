@@ -4,9 +4,13 @@
 : Using gcc compiler:
 Run the following commands in the terminal in order.
 ```
-(1) cd src
-(2) gcc main.c input.c game.c render.c words.c enemy.c console.c -o game.exe
-(3) .\game.exe 
+mkdir out
+gcc ./src/*.c -o ./out/game.exe
+copy src\words.txt out\
+del *.obj
+cd out
+start ./game.exe
+cd ..;;
 ```
 ---
 ## Docs
