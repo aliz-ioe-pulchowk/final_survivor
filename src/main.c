@@ -3,38 +3,39 @@
 #include "game.h"
 #include "input.h"
 #include "render.h"
-#include "words.h"
 #include "user_data.h"
+#include "words.h"
 
-#include <stdio.h>
 #include <conio.h>
-//safety net for -Wimplicit -function-declaration errors in some compilers
+#include <stdio.h>
+
+// safety net for -Wimplicit -function-declaration errors in some compilers
 
 #define CLEAR_SCREEN system("cls");
 
-// start's game 
+// start's game
 void startGame();
 
 // routes user choice to the proper function
 void router(int);
 
 int main() {
-    
     int choice = main_menu();
     router(choice);
     return 0;
 }
 
-void router(int choice){
-    switch (choice){
-        case 0: 
+void router(int choice) {
+    switch (choice) {
+        case 0:
             CLEAR_SCREEN
             printf("\n-- Terminating Program --\n");
             exit(0);
             break;
-        case 1: 
+        case 1:
             CLEAR_SCREEN
             startGame();
+            exit(0);
             break;
         case 2:
             CLEAR_SCREEN
@@ -51,14 +52,29 @@ void router(int choice){
     printf("Press Enter to continue...\n");
     getchar();
     getchar();
+
+    CLEAR_SCREEN
+
+    // return back to router
+    router(main_menu());
 }
 
-void startGame(){
+void startGame() {
     char username[50];
     getchar();
-    printf("Enter your Username: ");
-    scanf("%[^\n]s", username);
-    CLEAR_SCREEN
+
+    do {
+        printf("Enter your Username: ");
+        gets(username);
+
+        if (strlen(username) == 0) {
+            printf("\nEnter at least one character");
+            getchar();
+        }
+
+        CLEAR_SCREEN
+    } while (strlen(username) == 0);
+
     generate_wall(3);
     start_menu();
     GameState game;

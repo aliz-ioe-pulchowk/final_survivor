@@ -4,13 +4,13 @@
 #define SCOREBOARD_FILE "Scoreboard.txt"
 typedef struct
 {
-    char username[50];
-    int score;
-    int level;
+    char  username[50];
+    int   score;
+    int   level;
     float timePlayed;
 } UserData;
 
-UserData getUserData(GameState *gs, char username[50]);
+UserData getUserData(GameState *gs, char *username);
 
 void saveUserData(UserData *user, char *filepath);
 

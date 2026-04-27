@@ -3,7 +3,7 @@
 
 #include "types.h"
 
-//renders the main menu of choices
+// renders the main menu of choices
 int main_menu();
 
 // game starting menu

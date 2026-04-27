@@ -1,14 +1,12 @@
-#include <stdio.h>
-#include <conio.h>
 #include "render.h"
+#include <conio.h>
+#include <stdio.h>
 #include "console.h"
 
-int main_menu()
-{
+int main_menu() {
     int choice;
     int is_invalid = 1;
-    while (is_invalid)
-    {
+    while (is_invalid) {
         printf(
             "\n<><><><><><><><><><><><><><><><><><><><><>"
             "\n         -- FINALS SURVIVOR --         "
@@ -20,10 +18,9 @@ int main_menu()
             "\n\n<><><><><><><><><><><><><><><><><><><><>"
             "\nYour response: ");
         scanf(" %d", &choice);
-        
+
         is_invalid = choice > 3 || choice < 0;
-        if (is_invalid)
-        {
+        if (is_invalid) {
             system("cls");
             printf("Invalid choice: [0 - 4] available.\n");
             continue;

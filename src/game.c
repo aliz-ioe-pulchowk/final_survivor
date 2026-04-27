@@ -6,11 +6,9 @@
 #include "render.h"
 #include "words.h"
 
-
-#include <time.h>
-#include <stdio.h>
 #include <conio.h>
-
+#include <stdio.h>
+#include <time.h>
 
 int game_init(GameState* gs) {
     srand((unsigned int) time(NULL));
