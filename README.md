@@ -1,9 +1,18 @@
 # C programming Project
 ---
+## RUNNING ON WINDOWS: 
+: Using gcc compiler:
+Run the following commands in the terminal in order.
+```
+(1) cd src
+(2) gcc main.c input.c game.c render.c words.c enemy.c console.c -o game.exe
+(3) .\game.exe 
+```
+---
 ## Docs
 1. [TODOs](./docs/TODO.md)
 2. [Flowcharts](./docs/flowcharts/img/)
-
+---
 ## System Designs
 
 #### 1. Main Flow
@@ -16,7 +25,7 @@
 <img src="./docs/flowcharts/img/Subsystems_Flowchart_1.png" alt="Sub system Dependencies" width="1000"/>
 <img src="./docs/flowcharts/img/Subsystems_Flowchart_2.png" alt="Sub system Dependencies" width="1000"/>
 
-
+---
 ## Team Members
 1. Mahendra Sharma `082BCT037`
 2. Aliz Bhattarai `082BCT008`

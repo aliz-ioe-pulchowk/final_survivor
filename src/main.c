@@ -4,38 +4,63 @@
 #include "input.h"
 #include "render.h"
 #include "words.h"
-
+#include "user_data.h"
 
 #include <stdio.h>
 #include <conio.h>
 //safety net for -Wimplicit -function-declaration errors in some compilers
 
+#define CLEAR_SCREEN system("cls");
 
-void main_menu() {
-    system("cls");
-    printf(
-        "\n<><><><><><><><><><><><><><><><><><><>"
-        "\n         -- GAME  STARTING --         "
-        "\n<><><><><><><><><><><><><><><><><><><>"
-        "\nIt had been raining for days"
-        "\nThe princess over the wall is wet"
-        "\nShe cannot shoot the monsters coming"
-        "\nInside her   castle. To save her"
-        "\nYou force yourself inside"
-        "\nThe blood keeps on dripping..drip..drip"
-        "\nYou push the blockade forcefully"
-        "\nThen you drown in water that came from"
-        "\nPrincess.. (no more words are available)"
-        "\n\n<><><><><><><><><><><><><><><><><><><>"
-        "\n\nPress 'Enter' to continue...");
+// start's game 
+void startGame();
 
-    _getch();
-};
+// routes user choice to the proper function
+void router(int);
 
 int main() {
-    generate_wall(3);
-    main_menu();
+    
+    int choice = main_menu();
+    router(choice);
+    return 0;
+}
 
+void router(int choice){
+    switch (choice){
+        case 0: 
+            CLEAR_SCREEN
+            printf("\n-- Terminating Program --\n");
+            exit(0);
+            break;
+        case 1: 
+            CLEAR_SCREEN
+            startGame();
+            break;
+        case 2:
+            CLEAR_SCREEN
+            displayAllUsers(SCOREBOARD_FILE);
+            break;
+        case 3:
+            CLEAR_SCREEN
+            clearScores(SCOREBOARD_FILE);
+            break;
+        default:
+            printf("...\n");
+            break;
+    }
+    printf("Press Enter to continue...\n");
+    getchar();
+    getchar();
+}
+
+void startGame(){
+    char username[50];
+    getchar();
+    printf("Enter your Username: ");
+    scanf("%[^\n]s", username);
+    CLEAR_SCREEN
+    generate_wall(3);
+    start_menu();
     GameState game;
 
     game_init(&game);
@@ -43,5 +68,7 @@ int main() {
     game_run(&game);
 
     render_game_over(&game, GetTickCount());
-    return 0;
+    UserData user = getUserData(&game, username);
+    saveUserData(&user, SCOREBOARD_FILE);
+    return;
 }
