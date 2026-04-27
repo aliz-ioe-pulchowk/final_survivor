@@ -41,7 +41,6 @@
 #define SPAWN_COL_MIN 1
 #define SPAWN_COL_MAX (CONSOLE_WIDTH - MAX_WORD_LEN - 2)
 
-// STRUCTS HERE
 
 // Enemy is basically a word that we need to type to destroy
 typedef struct {

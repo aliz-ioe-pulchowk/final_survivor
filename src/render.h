@@ -3,6 +3,12 @@
 
 #include "types.h"
 
+//renders the main menu of choices
+int main_menu();
+
+// game starting menu
+void start_menu();
+
 // helper to initialize wall
 void generate_wall(int no_of_small_arrows);
 

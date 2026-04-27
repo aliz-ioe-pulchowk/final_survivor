@@ -3,6 +3,51 @@
 #include "render.h"
 #include "console.h"
 
+int main_menu()
+{
+    int choice;
+    int is_invalid = 1;
+    while (is_invalid)
+    {
+        printf(
+            "\n<><><><><><><><><><><><><><><><><><><><><>"
+            "\n         -- FINALS SURVIVOR --         "
+            "\n<><><><><><><><><><><><><><><><><><><><><>"
+            "\n\n  (1) New Game "
+            "\n  (2) View Scoreboard"
+            "\n  (3) Clear ScoreBoard"
+            "\n  (0) Exit "
+            "\n\n<><><><><><><><><><><><><><><><><><><><>"
+            "\nYour response: ");
+        scanf(" %d", &choice);
+        
+        is_invalid = choice > 3 || choice < 0;
+        if (is_invalid)
+        {
+            system("cls");
+            printf("Invalid choice: [0 - 4] available.\n");
+            continue;
+        }
+    }
+    return choice;
+}
+
+void start_menu() {
+    system("cls");
+    printf(
+        "\n<><><><><><><><><><><><><><><><><><><><><>"
+        "\n         -- GAME  STARTING --         "
+        "\n<><><><><><><><><><><><><><><><><><><><><>"
+        "\n\nYou look up at the sky in wonder,"
+        "\nonly to see words falling towards you,"
+        "\nthe sole warrior defending the castle."
+        "\n\nSurvive the chaos as the final Survivor."
+        "\n\n<><><><><><><><><><><><><><><><><><><><>"
+        "\n\nPress 'Enter' to continue...");
+
+    _getch();
+};
+
 // helper function to dynamically generate custom sized wall.
 char wall[ROW_LEN];
 void generate_wall(int no_of_small_arrows) {
